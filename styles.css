@@ -238,40 +238,52 @@ footer { padding: 52px 0; color: rgba(255,255,255,.68); background: #0c122a; }
   .contact-info { position: static; }
   body.menu-open .site-header {
     position: fixed;
-    background: var(--forest);
+    z-index: 1000;
+    background: transparent;
     border-color: rgba(255,255,255,.18);
+    box-shadow: none;
+    backdrop-filter: none;
   }
   body.menu-open .site-header .brand,
   body.menu-open .site-header .nav-toggle {
-    color: var(--white);
+    position: relative;
+    z-index: 1001;
+    color: var(--white) !important;
   }
   body.menu-open .site-header .brand-mark {
-    color: var(--gold-light);
+    color: var(--gold-light) !important;
   }
   .main-nav {
     position: fixed;
-    z-index: 1;
+    z-index: 999;
     inset: 0;
     display: flex;
     visibility: hidden;
     flex-direction: column;
     justify-content: center;
     gap: 28px;
-    color: var(--white);
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 110px 24px 70px;
+    color: var(--white) !important;
     background:
-      linear-gradient(110deg, rgba(10, 15, 38, .98) 0%, rgba(18, 29, 61, .98) 58%, rgba(25, 45, 68, .98) 100%);
+      linear-gradient(110deg, rgba(10, 15, 38, .97) 0%, rgba(18, 29, 61, .97) 58%, rgba(25, 45, 68, .97) 100%);
     opacity: 0;
     transform: translateY(-15px);
     transition: .25s;
   }
-  .main-nav.open { visibility: visible; opacity: 1; transform: none; }
-  .main-nav.open a {
-    color: var(--white);
+  .main-nav.open {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
   }
-  .main-nav.open .nav-cta {
-    border-color: rgba(255,255,255,.55);
+  body.menu-open .main-nav.open a {
+    color: var(--white) !important;
+  }
+  body.menu-open .main-nav.open .nav-cta {
+    border-color: rgba(255,255,255,.65) !important;
     background: transparent;
-    color: var(--white);
+    color: var(--white) !important;
   }
   .nav-toggle { z-index: 2; display: block; color: var(--white); cursor: pointer; }
   .site-header.scrolled .nav-toggle { color: var(--ink); }
