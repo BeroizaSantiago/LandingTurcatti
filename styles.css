@@ -236,20 +236,43 @@ footer { padding: 52px 0; color: rgba(255,255,255,.68); background: #0c122a; }
   .hero-card { max-width: 610px; }
   .service-grid { grid-template-columns: repeat(2, 1fr); }
   .contact-info { position: static; }
+  body.menu-open .site-header {
+    position: fixed;
+    background: var(--forest);
+    border-color: rgba(255,255,255,.18);
+  }
+  body.menu-open .site-header .brand,
+  body.menu-open .site-header .nav-toggle {
+    color: var(--white);
+  }
+  body.menu-open .site-header .brand-mark {
+    color: var(--gold-light);
+  }
   .main-nav {
     position: fixed;
+    z-index: 1;
     inset: 0;
     display: flex;
     visibility: hidden;
     flex-direction: column;
     justify-content: center;
-    color: var(--white) !important;
-    background: var(--forest);
+    gap: 28px;
+    color: var(--white);
+    background:
+      linear-gradient(110deg, rgba(10, 15, 38, .98) 0%, rgba(18, 29, 61, .98) 58%, rgba(25, 45, 68, .98) 100%);
     opacity: 0;
     transform: translateY(-15px);
     transition: .25s;
   }
   .main-nav.open { visibility: visible; opacity: 1; transform: none; }
+  .main-nav.open a {
+    color: var(--white);
+  }
+  .main-nav.open .nav-cta {
+    border-color: rgba(255,255,255,.55);
+    background: transparent;
+    color: var(--white);
+  }
   .nav-toggle { z-index: 2; display: block; color: var(--white); cursor: pointer; }
   .site-header.scrolled .nav-toggle { color: var(--ink); }
   .nav-toggle.active { color: var(--white) !important; }
