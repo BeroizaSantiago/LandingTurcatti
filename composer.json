@@ -1,0 +1,9 @@
+{
+  "name": "estudio-dali/landing",
+  "description": "Landing page de Estudio Dali con formulario de contacto.",
+  "type": "project",
+  "license": "proprietary",
+  "require": {
+    "phpmailer/phpmailer": "^6.10"
+  }
+}
