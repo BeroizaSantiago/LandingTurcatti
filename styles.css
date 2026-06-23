@@ -59,13 +59,23 @@ p { color: var(--muted); }
 .brand { display: inline-flex; align-items: center; gap: 12px; color: var(--white); }
 .brand-mark {
   display: grid;
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
   place-items: center;
-  border: 1px solid var(--gold);
-  color: var(--gold-light);
-  font: 700 1.45rem "Playfair Display", serif;
+  border: 1px solid rgba(231,210,173,.75);
+  overflow: hidden;
+  background: transparent;
 }
+.brand-logo {
+  grid-area: 1 / 1;
+  width: 82%;
+  height: 82%;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+}
+.brand-logo-dark { display: none; }
+.brand-logo-light { display: block; }
 .brand strong, .brand small { display: block; }
 .brand strong { font-family: "Playfair Display", serif; font-size: 1.1rem; }
 .brand small { opacity: .72; font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; }
@@ -73,7 +83,12 @@ p { color: var(--muted); }
 .main-nav a:not(.nav-cta):hover { color: var(--gold-light); }
 .nav-cta { padding: 12px 18px; border: 1px solid rgba(255,255,255,.35); }
 .site-header.scrolled .brand, .site-header.scrolled .main-nav { color: var(--ink); }
-.site-header.scrolled .brand-mark { color: var(--forest); }
+.site-header.scrolled .brand-mark {
+  border-color: var(--gold);
+  background: rgba(255,255,255,.94);
+}
+.site-header.scrolled .brand-logo-light { display: none; }
+.site-header.scrolled .brand-logo-dark { display: block; }
 .site-header.scrolled .nav-cta { border-color: var(--forest); }
 .nav-toggle { display: none; padding: 6px; border: 0; background: transparent; }
 .nav-toggle span { display: block; width: 25px; height: 2px; margin: 5px; background: currentColor; }
@@ -286,6 +301,8 @@ footer { padding: 52px 0; color: rgba(255,255,255,.68); background: #0c122a; }
 .footer-grid p { margin: 0; color: inherit; font-size: .78rem; text-align: center; }
 .footer-grid p:last-child { text-align: right; }
 .brand-footer { color: var(--white); }
+.brand-footer .brand-logo-light { display: block; }
+.brand-footer .brand-logo-dark { display: none; }
 .whatsapp-float {
   position: fixed;
   z-index: 15;
@@ -326,9 +343,9 @@ footer { padding: 52px 0; color: rgba(255,255,255,.68); background: #0c122a; }
     z-index: 1001;
     color: var(--white) !important;
   }
-  body.menu-open .site-header .brand-mark {
-    color: var(--gold-light) !important;
-  }
+  body.menu-open .site-header .brand-mark { border-color: var(--gold); }
+  body.menu-open .site-header .brand-logo-light { display: block; }
+  body.menu-open .site-header .brand-logo-dark { display: none; }
   .main-nav {
     position: fixed;
     z-index: 999;
@@ -370,7 +387,7 @@ footer { padding: 52px 0; color: rgba(255,255,255,.68); background: #0c122a; }
   .container { width: min(100% - 28px, 1160px); }
   .section { padding: 80px 0; }
   .nav-wrap { min-height: 76px; }
-  .brand-mark { width: 38px; height: 38px; }
+  .brand-mark { width: 44px; height: 44px; }
   .hero { min-height: auto; padding: 135px 0 75px; }
   h1 { font-size: 3.15rem; }
   .hero-trust { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 44px; }
