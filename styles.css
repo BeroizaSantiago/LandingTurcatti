@@ -346,6 +346,9 @@ footer { padding: 52px 0; color: rgba(255,255,255,.68); background: #0c122a; }
   body.menu-open .site-header .brand-mark { border-color: var(--gold); }
   body.menu-open .site-header .brand-logo-light { display: block; }
   body.menu-open .site-header .brand-logo-dark { display: none; }
+  body.menu-open .site-header.scrolled .brand-mark { background: transparent; }
+  body.menu-open .site-header.scrolled .brand-logo-light { display: block; }
+  body.menu-open .site-header.scrolled .brand-logo-dark { display: none; }
   .main-nav {
     position: fixed;
     z-index: 999;
