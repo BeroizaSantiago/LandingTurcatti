@@ -6,6 +6,7 @@ const toggle = document.querySelector(".nav-toggle");
 const navigation = document.querySelector(".main-nav");
 const form = document.querySelector(".contact-form");
 const statusBox = document.querySelector(".form-status");
+const aboutPhoto = document.querySelector(".about-photo img");
 
 document.querySelectorAll(".js-whatsapp").forEach((link) => {
   link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
@@ -13,6 +14,18 @@ document.querySelectorAll(".js-whatsapp").forEach((link) => {
 
 document.querySelector("#year").textContent = new Date().getFullYear();
 document.querySelector("#form_started").value = Math.floor(Date.now() / 1000);
+
+if (aboutPhoto) {
+  if (aboutPhoto.complete && aboutPhoto.naturalWidth > 0) {
+    aboutPhoto.closest(".about-photo")?.classList.add("has-photo");
+  }
+  aboutPhoto.addEventListener("load", () => {
+    aboutPhoto.closest(".about-photo")?.classList.add("has-photo");
+  });
+  aboutPhoto.addEventListener("error", () => {
+    aboutPhoto.hidden = true;
+  });
+}
 
 window.addEventListener("scroll", () => {
   header.classList.toggle("scrolled", window.scrollY > 30);
